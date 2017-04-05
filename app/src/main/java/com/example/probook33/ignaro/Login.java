@@ -1,6 +1,8 @@
 package com.example.probook33.ignaro;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ public class Login extends AppCompatActivity {
     private EditText emailid,pwd;
     private String email,password;
     private Button login;
+    private ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +61,9 @@ public class Login extends AppCompatActivity {
                 email= emailid.getText().toString();
                 password= pwd.getText().toString();
                 signIn(email,password);
-
+                pd = new ProgressDialog(Login.this);
+                pd.setMessage("Logging... ");
+                pd.show();
             }
         });
 
@@ -80,14 +85,21 @@ public class Login extends AppCompatActivity {
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
                             Toast.makeText(getApplicationContext(), R.string.auth_failed,
                                     Toast.LENGTH_SHORT).show();
+                            pd.dismiss();
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(Login.this,Dashboard.class);
-                            startActivity(intent);
+                            new Handler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent i = new Intent(Login.this, Dashboard.class);
+                                    startActivity(i);
+                                    Login.super.onBackPressed();
+                                    finish();
+                                }
+                            });
+                            pd.dismiss();
                         }
-
-                        // ...
                     }
                 });
     }

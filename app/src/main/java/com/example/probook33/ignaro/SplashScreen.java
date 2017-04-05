@@ -11,21 +11,27 @@ import java.util.TimerTask;
 
 public class SplashScreen extends Activity {
 
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        new Timer().schedule(new TimerTask() {
+        new Handler().postDelayed(new Runnable() {
+
+            /*
+             * Showing splash screen with a timer. This will be useful when you
+             * want to show case your app logo / company
+             */
+
             @Override
             public void run() {
-                // this code will be executed after 2 seconds
                 Intent i = new Intent(SplashScreen.this, Register.class);
                 startActivity(i);
+                finish();
             }
-        }, 2000);
+        }, SPLASH_TIME_OUT);
 
     }
 }

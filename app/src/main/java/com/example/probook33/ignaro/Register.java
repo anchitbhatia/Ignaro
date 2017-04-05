@@ -1,5 +1,7 @@
 package com.example.probook33.ignaro;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -22,7 +24,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Register extends AppCompatActivity {
+public class Register extends Activity {
 
     private EditText name,emailid,pwd,username;
     private FirebaseAuth mAuth;
@@ -30,7 +32,7 @@ public class Register extends AppCompatActivity {
     private static final String TAG = "FIREBASE : ";
     private Button register,alreadyreg;
     private String email,password;
-
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +80,10 @@ public class Register extends AppCompatActivity {
                 email=emailid.getText().toString();
                 password=pwd.getText().toString();
                 createAccount(email,password);
+                pd = new ProgressDialog(Register.this);
+                pd.setMessage("Registering... ");
+                pd.show();
+
             }
         });
 
@@ -86,6 +92,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(Register.this,Login.class);
                 startActivity(intent);
+
             }
         });
     }
@@ -126,11 +133,13 @@ public class Register extends AppCompatActivity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), R.string.auth_failed,
+                            pd.dismiss();
+                            Toast.makeText(getApplicationContext(), "Registration Failed",
                                     Toast.LENGTH_SHORT).show();
 
                         }
                         else {
+                            pd.dismiss();
                             Toast.makeText(getApplicationContext(), "Successfully registered", Toast.LENGTH_SHORT).show();
 
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -181,6 +190,10 @@ public class Register extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         mAuth.addAuthStateListener(mAuthListener);
+    }
+    @Override
+    public void onBackPressed() {
+        this.finish(); // "Hide" your current Activity
     }
 
 }
