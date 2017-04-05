@@ -1,10 +1,13 @@
 package com.example.probook33.ignaro;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,15 +40,23 @@ public class Dashboard extends AppCompatActivity
     ArrayList<String> grps,grpsid;
     ListView groupslv;
     ProgressDialog pd;
+    Boolean exit = false;
     TextView navbar_name,navbar_email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        String tmp = String.valueOf(android.os.Process.getThreadPriority(android.os.Process.myTid()));
+        Log.d("ServiceMainThreadId", tmp);
+        Thread handler = new Thread() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Dashboard.this, NotifService.class);
+                startService(intent);
+            }
+        };
+        handler.start();
 
-        Intent intent = new Intent(Dashboard.this, NotifService.class);
-        startService(intent);
-        
         pd = new ProgressDialog(this);
         pd.setMessage("Fetching details... ");
         pd.show();
@@ -148,7 +159,21 @@ public class Dashboard extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (exit) {
+                finish(); // finish activity
+            } else {
+                Toast.makeText(this, "Press Back Again to Exit.",
+                        Toast.LENGTH_SHORT).show();
+                exit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exit = false;
+                    }
+                }, 3 * 1000);
+
+            }
+
         }
         finishAffinity();
     }

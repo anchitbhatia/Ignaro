@@ -36,8 +36,12 @@
 
         <service
             android:name=".NotifService"
-            android:exported="false" />
+            android:exported="false">
+            <intent-filter>
+                <action android:name=".NotifService" />
+            </intent-filter>
 
+        </service>
         <activity android:name=".Manage_grouplocations"></activity>
     </application>
 
