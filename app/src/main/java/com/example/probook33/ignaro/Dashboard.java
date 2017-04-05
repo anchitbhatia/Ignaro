@@ -43,6 +43,9 @@ public class Dashboard extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        Intent intent = new Intent(Dashboard.this, NotifService.class);
+        startService(intent);
+        
         pd = new ProgressDialog(this);
         pd.setMessage("Fetching details... ");
         pd.show();
