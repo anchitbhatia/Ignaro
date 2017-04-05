@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.example.probook33.ignaro.Group_settings">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:id="@+id/title"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Name : "
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/gn"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Name  "
+            android:textSize="25dp"
+            android:layout_toRightOf="@id/gn"
+            android:id="@+id/groupname"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_below="@id/title"
+        android:id="@+id/adminlayout"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin : "
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/adm"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin Name  "
+            android:textSize="25dp"
+            android:layout_toRightOf="@id/adm"
+            android:id="@+id/admin"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_below="@id/adminlayout"
+        android:id="@+id/keylayout"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Key : "
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/keytv"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Key  "
+            android:textSize="25dp"
+            android:layout_toRightOf="@id/keytv"
+            android:id="@+id/key"/>
+    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage locations"
+        android:id="@+id/locbtn"
+        android:layout_alignParentBottom="true"
+
+        android:padding="10dp"
+        android:background="@color/fab"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Members"
+        android:textColor="@android:color/white"
+        android:background="@color/fab"
+
+        android:layout_above="@id/locbtn"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@id/locbtn"
+        android:layout_alignEnd="@id/locbtn"/>
+
+</RelativeLayout>

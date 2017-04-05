@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layout_weight="5"
+    tools:context="com.example.probook33.ignaro.GroupPage">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_weight="4"
+        android:id="@+id/post"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <android.support.design.widget.FloatingActionButton
+            android:src="@drawable/newmember"
+            app:fabSize="mini"
+            android:id="@+id/add"
+            app:backgroundTint="@android:color/holo_green_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:src="@drawable/newnote"
+            app:fabSize="mini"
+            android:id="@+id/newnote"
+            app:backgroundTint="@android:color/holo_orange_light"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:src="@drawable/deletenote"
+            app:fabSize="mini"
+            android:id="@+id/delnote"
+            app:backgroundTint="@android:color/holo_red_light"
+            android:layout_toRightOf="@id/newnote"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:src="@drawable/groupsettings"
+            app:fabSize="mini"
+            android:id="@+id/grpsetting"
+            android:layout_toRightOf="@id/delnote"
+            android:layout_marginLeft="30dp"
+            app:backgroundTint="@android:color/holo_purple"
+            app:elevation="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/notes"
+        android:layout_below="@id/post"
+        android:layout_alignParentStart="true">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:id="@+id/notelv"
+            android:divider="@android:color/white"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

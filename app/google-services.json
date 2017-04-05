@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "816667828817",
+    "firebase_url": "https://ignaro-5dcc7.firebaseio.com",
+    "project_id": "ignaro-5dcc7",
+    "storage_bucket": "ignaro-5dcc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816667828817:android:caca402699d6a9a2",
+        "android_client_info": {
+          "package_name": "com.example.probook33.ignaro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816667828817-budem1jr4nrb0500vsscgn8be5bso1qh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.probook33.ignaro",
+            "certificate_hash": "f049abd0a92c98a7e71ac9f5ef9b93ac80619bab"
+          }
+        },
+        {
+          "client_id": "816667828817-qe8mglf6muud99okg574ovs129ooq1ae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2uvuVJ0OwP3EAk2YVVOkx0qU0ZtV70-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816667828817-qe8mglf6muud99okg574ovs129ooq1ae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
