@@ -38,6 +38,7 @@
             android:name=".NotifService"
             android:exported="false" />
 
+        <activity android:name=".Manage_grouplocations"></activity>
     </application>
 
 </manifest>

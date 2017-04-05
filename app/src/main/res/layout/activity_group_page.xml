@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:layout_weight="5"
+
     tools:context="com.example.probook33.ignaro.GroupPage">
 
     <RelativeLayout
@@ -61,7 +62,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="5dp"
         android:id="@+id/notes"
         android:layout_below="@id/post"
         android:layout_alignParentStart="true">
@@ -71,7 +72,7 @@
             android:padding="10dp"
             android:id="@+id/notelv"
             android:divider="@android:color/white"
-
+            android:paddingBottom="5dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
     </RelativeLayout>
