@@ -9,6 +9,24 @@ public class NewNote {
     String text;
     String g_id;
     String ownerid;
+    String lat;
+    String lon;
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
 
     public String getOwnerid() {
         return ownerid;
@@ -18,11 +36,13 @@ public class NewNote {
         this.ownerid = ownerid;
     }
 
-    public NewNote(String owner, String text, String g_id, String ownerid) {
+    public NewNote(String owner, String text, String g_id, String ownerid,String lat,String lon) {
         this.owner = owner;
         this.text = text;
         this.g_id = g_id;
         this.ownerid=ownerid;
+        this.lat=lat;
+        this.lon=lon;
     }
 
     public String getOwner() {

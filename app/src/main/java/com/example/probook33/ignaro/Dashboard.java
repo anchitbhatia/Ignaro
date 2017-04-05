@@ -140,7 +140,6 @@ public class Dashboard extends AppCompatActivity
         });
 
 
-
     }
 
     @Override
@@ -199,4 +198,5 @@ public class Dashboard extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

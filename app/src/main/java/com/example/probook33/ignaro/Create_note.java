@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class Create_note extends AppCompatActivity {
 
     TextView groupname;
-    EditText text;
+    EditText text,lat,lon;
     Button add;
 
     @Override
@@ -32,6 +32,8 @@ public class Create_note extends AppCompatActivity {
 
         groupname= (TextView) findViewById(R.id.groupname);
         text= (EditText) findViewById(R.id.text);
+        lat= (EditText) findViewById(R.id.lat);
+        lon= (EditText) findViewById(R.id.lon);
 
         groupname.setText("Post in "+GroupPage.grp.getGroupname());
 
@@ -54,7 +56,7 @@ public class Create_note extends AppCompatActivity {
                             {
                                 String owner= String.valueOf(messageSnapshot.child("name").getValue());
                                 Log.d("ans", GroupPage.grp.getG_id());
-                                NewNote note=new NewNote(owner,text.getText().toString(),GroupPage.grp.getG_id(),FirebaseAuth.getInstance().getCurrentUser().getUid().toString());
+                                NewNote note=new NewNote(owner,text.getText().toString(),GroupPage.grp.getG_id(),FirebaseAuth.getInstance().getCurrentUser().getUid().toString(),lat.getText().toString(),lon.getText().toString());
 
                                 final DatabaseReference data =FirebaseDatabase.getInstance().getReference("notes");
                                 String noteid= data.push().getKey();

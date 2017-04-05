@@ -38,6 +38,7 @@ public class Group_settings extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent i=new Intent(Group_settings.this,GroupPage.class);
+        i.putExtra("title", GroupPage.grp.getGroupname());
         startActivity(i);
     }
 }

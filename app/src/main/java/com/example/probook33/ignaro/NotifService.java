@@ -101,12 +101,7 @@ public class NotifService extends Service {
             double latitude = nwLocation.getLatitude();
             double longitude = nwLocation.getLongitude();
             s1= String.valueOf(latitude)+","+String.valueOf(longitude);
-            Log.v("ServiceLocation:",s1);
-            Toast.makeText(
-                    getApplicationContext(),
-                    "Mobile Location (NW): \nLatitude: " + latitude
-                            + "\nLongitude: " + longitude,
-                    Toast.LENGTH_LONG).show();
+
         } else {
             Log.v("ServiceNETWORK","Not Granted");
         }
@@ -117,11 +112,7 @@ public class NotifService extends Service {
             longitude= (double)Math.round(longitude * 100000d) / 100000d;
             s1= String.valueOf(latitude)+","+String.valueOf(longitude);
             Log.v("ServiceLocationGPS:",s1);
-            Toast.makeText(
-                    getApplicationContext(),
-                    "GPS Location: \nLatitude: " + latitude
-                            + "\nLongitude: " + longitude,
-                    Toast.LENGTH_LONG).show();
+
         } else {
             Log.v("ServiceGPS","Not Granted");
         }
