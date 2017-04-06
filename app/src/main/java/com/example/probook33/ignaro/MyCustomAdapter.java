@@ -73,10 +73,13 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         final TextView listItemText = (TextView)view.findViewById(R.id.tv);
         String s=list2.get(position);
         listItemText.setText(list.get(position));
-
-        if(s.equals("complete")){
+        Log.v("ServiceEq",s);
+        if(!s.equals("pending")){
             listItemText.setPaintFlags(listItemText.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
 
+        }
+        else{
+            listItemText.setPaintFlags(listItemText.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
         }
         //Handle buttons and add onClickListeners
 
