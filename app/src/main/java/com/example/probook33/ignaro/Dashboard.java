@@ -210,7 +210,9 @@ public class Dashboard extends AppCompatActivity
             Intent intent=new Intent(Dashboard.this,Create_group.class);
             startActivity(intent);
 
-        } else if (id == R.id.mygroups) {
+        } else if (id == R.id.about) {
+            Intent intent=new Intent(Dashboard.this,About.class);
+            startActivity(intent);
 
         }
         else if (id == R.id.signout) {

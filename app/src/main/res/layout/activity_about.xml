@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.probook33.ignaro.About"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IGNARO"
+        android:id="@+id/title"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="40dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="version1.0"
+    android:layout_below="@id/title"
+    android:id="@+id/version"
+    android:textColor="@android:color/white"
+    android:layout_centerHorizontal="true"
+    android:textSize="20dp"
+    android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="20dp"
+        android:textSize="25dp"
+        android:text="ANCHIT BHATIA"
+        android:elevation="10dp"
+        android:layout_below="@id/version"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:padding="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="70dp"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:elevation="10dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:text="CHINMAY NIVSARKAR"
+        android:layout_below="@id/tv"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:padding="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="made in India"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/made"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="15dp"
+        android:layout_marginBottom="5dp"/>
+
+</RelativeLayout>
