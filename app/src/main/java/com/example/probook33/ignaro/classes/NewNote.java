@@ -11,10 +11,14 @@ public class NewNote {
     String ownerid;
     String lat;
     String lon;
-
+    String status;
     public String getLat() {
         return lat;
     }
+
+    public String getStatus(){ return status;}
+
+    public void setStatus(String status){this.status=status;}
 
     public void setLat(String lat) {
         this.lat = lat;
@@ -36,13 +40,14 @@ public class NewNote {
         this.ownerid = ownerid;
     }
 
-    public NewNote(String owner, String text, String g_id, String ownerid,String lat,String lon) {
+    public NewNote(String owner, String text, String g_id, String ownerid,String lat,String lon,String status) {
         this.owner = owner;
         this.text = text;
         this.g_id = g_id;
         this.ownerid=ownerid;
         this.lat=lat;
         this.lon=lon;
+        this.status=status;
     }
 
     public String getOwner() {
@@ -56,6 +61,8 @@ public class NewNote {
     public String getText() {
         return text;
     }
+
+
 
     public void setText(String text) {
         this.text = text;

@@ -63,7 +63,9 @@ public class Create_note extends AppCompatActivity {
                             {
                                 String owner= String.valueOf(messageSnapshot.child("name").getValue());
                                 Log.d("ans", GroupPage.grp.getG_id());
-                                NewNote note=new NewNote(owner,text.getText().toString(),GroupPage.grp.getG_id(),FirebaseAuth.getInstance().getCurrentUser().getUid().toString(),lat.getText().toString(),lon.getText().toString());
+                                NewNote note=new NewNote(owner,text.getText().toString(),GroupPage.grp.getG_id(),FirebaseAuth.getInstance().getCurrentUser().getUid().toString(),lat.getText().toString(),lon.getText().toString(),"pending");
+
+                                Log.v("Note",String.valueOf(note));
 
                                 final DatabaseReference data =FirebaseDatabase.getInstance().getReference("notes");
                                 String noteid= data.push().getKey();

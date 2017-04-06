@@ -26,7 +26,7 @@ public class GroupPage extends AppCompatActivity {
     String title;
     ListView notelv;
     public final static group grp=new group();
-    ArrayList<String> notes;
+    ArrayList<String> notes,nids,stat;
     ProgressDialog pd;
 
     @Override
@@ -43,6 +43,8 @@ public class GroupPage extends AppCompatActivity {
 
         notelv= (ListView) findViewById(R.id.notelv);
         notes=new ArrayList<>();
+        nids=new ArrayList<>();
+        stat=new ArrayList<>();
 
         FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
@@ -158,20 +160,25 @@ public class GroupPage extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot notesSnapshot: dataSnapshot.getChildren())
                         {
+                            String nid = String.valueOf(notesSnapshot.getKey());
+                            Log.v("Notekey",nid);
+
                             String n= String.valueOf(notesSnapshot.child("g_id").getValue());
                             if(n.equals(grp.getG_id()))
                             {
                                 String note=String.valueOf(notesSnapshot.child("text").getValue());
+                                String s=String.valueOf(notesSnapshot.child("status").getValue());
                                 if(!notes.contains(note))
                                 {
                                     notes.add(note);
-
+                                    nids.add(nid);
+                                    stat.add(s);
                                 }
                             }
                         }
                         if(notes!=null) {
                            // ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.note_list_element, notes);
-                            MyCustomAdapter adapter = new MyCustomAdapter(notes,getApplicationContext());
+                            MyCustomAdapter adapter = new MyCustomAdapter(notes,nids,stat,getApplicationContext());
                             notelv.setAdapter(adapter);
                             pd.dismiss();
                         }
