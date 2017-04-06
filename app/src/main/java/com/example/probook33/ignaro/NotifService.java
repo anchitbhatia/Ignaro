@@ -182,6 +182,8 @@ public class NotifService extends Service {
                                 Log.v("ServiceS1:", String.valueOf(s1));
                                 lat =String.valueOf(messageSnapshot.child("lat").getValue());
                                 lon =String.valueOf(messageSnapshot.child("lon").getValue());
+                                String stat =String.valueOf(messageSnapshot.child("status").getValue());
+                                Log.v("ServiceStat:", String.valueOf(stat));
                                 Boolean x =(lat.equals("null"));
                                 Log.v("ServiceLatx:", String.valueOf(x));
                                 x = x | (lon.equals("null"));
@@ -206,11 +208,10 @@ public class NotifService extends Service {
                                   //  lon = (String) messageSnapshot.child("lon").getValue();
                                   //  txt = (String) messageSnapshot.child("txt").getValue();
 
-                                    if (l1==latitude && l2==longitude) {
+                                    if (l1==latitude && l2==longitude && !stat.equals("complete")) {
                                         Log.v("ServicePushing",txt);
                                         notification(txt,gname);
                                     }
-
                             }
                         }
 
@@ -251,7 +252,7 @@ public class NotifService extends Service {
         NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notify=new Notification.Builder
                 (getApplicationContext()).setContentTitle("Title").setContentText(task).
-                setContentTitle("Nearby Incomplete Task in group"+p).setSmallIcon(R.drawable.common_google_signin_btn_icon_dark).build();
+                setContentTitle("Nearby Incomplete Task in group"+p).setSmallIcon(R.drawable.appico).build();
 
         notify.flags |= Notification.FLAG_AUTO_CANCEL;
         notif.notify(0, notify);
