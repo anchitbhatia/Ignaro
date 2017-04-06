@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:backgroundTint="@android:color/white"
     android:background="@android:color/white"
-    android:elevation="10dp"
+    android:elevation="7dp"
     android:weightSum="4"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"

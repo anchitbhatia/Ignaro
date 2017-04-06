@@ -12,9 +12,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
+<<<<<<< Updated upstream
             android:cropToPadding="true"
             android:src="@drawable/splash"
             android:scaleType="fitXY"
+=======
+            android:src="@drawable/splash"
+            android:background="#008C9E"
+>>>>>>> Stashed changes
             />
 
 

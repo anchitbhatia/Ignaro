@@ -70,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
+            android:smoothScrollbar="true"
             android:id="@+id/notelv"
             android:divider="@android:color/white"
             android:paddingBottom="5dp"
