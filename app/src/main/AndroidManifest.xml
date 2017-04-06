@@ -44,7 +44,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MemberList"></activity>
+        <activity android:name=".MemberList" />
+        <activity android:name=".Join_group"></activity>
     </application>
 
 </manifest>

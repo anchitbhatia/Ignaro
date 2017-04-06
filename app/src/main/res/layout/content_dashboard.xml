@@ -19,6 +19,7 @@
         android:layout_marginTop="10dp"
         android:paddingRight="15dp"
         android:paddingBottom="20dp"
+        android:smoothScrollbar="true"
         android:layout_marginBottom="10dp"
         android:id="@+id/groupslv"/>
 </RelativeLayout>

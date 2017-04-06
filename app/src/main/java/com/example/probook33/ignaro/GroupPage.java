@@ -7,8 +7,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.PopupMenu;
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -22,40 +26,41 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class GroupPage extends AppCompatActivity {
+public class GroupPage extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     String title;
     ListView notelv;
     public final static group grp=new group();
     ArrayList<String> notes,nids,stat;
     ProgressDialog pd;
+    private static int pos;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_page);
         Bundle bundle = getIntent().getExtras();
-        title= bundle.getString("title");
+        title = bundle.getString("title");
         setTitle(title);
 
         pd = new ProgressDialog(this);
-        pd.setMessage("Fetching details... ");
+        pd.setMessage("Fetching notes... ");
         pd.show();
 
-        notelv= (ListView) findViewById(R.id.notelv);
-        notes=new ArrayList<>();
-        nids=new ArrayList<>();
-        stat=new ArrayList<>();
+        notelv = (ListView) findViewById(R.id.notelv);
+        notes = new ArrayList<>();
+        nids = new ArrayList<>();
+        stat = new ArrayList<>();
 
         FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(GroupPage.this,Add_member.class);
-                i.putExtra("admin",grp.getAdmin());
-                i.putExtra("gid",grp.getG_id());
-                i.putExtra("name",grp.getGroupname());
-                i.putExtra("key",grp.getKey());
+                Intent i = new Intent(GroupPage.this, Add_member.class);
+                i.putExtra("admin", grp.getAdmin());
+                i.putExtra("gid", grp.getG_id());
+                i.putExtra("name", grp.getGroupname());
+                i.putExtra("key", grp.getKey());
                 startActivity(i);
 
             }
@@ -65,7 +70,7 @@ public class GroupPage extends AppCompatActivity {
         newnote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(GroupPage.this,Create_note.class);
+                Intent i = new Intent(GroupPage.this, Create_note.class);
                 startActivity(i);
 
             }
@@ -75,7 +80,7 @@ public class GroupPage extends AppCompatActivity {
         delnote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                recreate();
             }
         });
 
@@ -83,14 +88,41 @@ public class GroupPage extends AppCompatActivity {
         grpsetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(GroupPage.this,Group_settings.class);
+                Intent i = new Intent(GroupPage.this, Group_settings.class);
                 startActivity(i);
 
             }
         });
 
-
+        notelv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                pos = position;
+                Toast.makeText(GroupPage.this, "clicked", Toast.LENGTH_SHORT).show();
+                showPopupMenu(view);
+            }
+        });
     }
+        public void showPopupMenu(View v){
+            PopupMenu popup = new PopupMenu(this, v);
+            MenuInflater inflater = popup.getMenuInflater();
+            inflater.inflate(R.menu.note_popup, popup.getMenu());
+            popup.show();
+            popup.setOnMenuItemClickListener(this);
+        }
+
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.del:
+                    Toast.makeText(getBaseContext(), "delete", Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.viewnote:
+                    Toast.makeText(getBaseContext(), "view", Toast.LENGTH_SHORT).show();
+                    return true;
+                default:
+                    return false;
+            }
+        }
 
     @Override
     public void onBackPressed() {
@@ -185,6 +217,14 @@ public class GroupPage extends AppCompatActivity {
                         else {
                             Toast.makeText(getApplicationContext(),"No notes",Toast.LENGTH_SHORT).show();
                         }
+                        notelv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                pos = position;
+                                Toast.makeText(GroupPage.this, "clicked", Toast.LENGTH_SHORT).show();
+                                showPopupMenu(view);
+                            }
+                        });
                     }
 
                     @Override

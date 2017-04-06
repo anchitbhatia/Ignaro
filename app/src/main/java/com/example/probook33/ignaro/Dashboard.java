@@ -58,7 +58,7 @@ public class Dashboard extends AppCompatActivity
         handler.start();
 
         pd = new ProgressDialog(this);
-        pd.setMessage("Fetching details... ");
+        pd.setMessage("Fetching groups... ");
         pd.show();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
