@@ -115,6 +115,7 @@ public class Register extends Activity {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                     Toast.makeText(Register.this, "Permission denied to use Location", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
                 return;
             }

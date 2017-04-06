@@ -157,7 +157,7 @@ public class NotifService extends Service {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String userid = String.valueOf(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                Toast.makeText(getApplicationContext(), userid, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), userid, Toast.LENGTH_SHORT).show();
 
                 for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                     String u = String.valueOf(messageSnapshot.child("username").getValue());
