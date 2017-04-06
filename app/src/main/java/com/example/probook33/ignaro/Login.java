@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
                 password= pwd.getText().toString();
                 signIn(email,password);
                 pd = new ProgressDialog(Login.this);
-                pd.setMessage("Logging... ");
+                pd.setMessage("Please Wait... Logging in.");
                 pd.show();
             }
         });

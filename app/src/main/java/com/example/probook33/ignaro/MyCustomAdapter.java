@@ -94,13 +94,12 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
                 if(s.equals("complete")){
                     return;
                 }
-                listItemText.setPaintFlags(listItemText.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
 
+                listItemText.setPaintFlags(listItemText.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 //Toast.makeText(context, String.valueOf(listItemText.getText()), Toast.LENGTH_SHORT).show();
-                Toast.makeText(context, "Marked Completed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Task marked completed!", Toast.LENGTH_SHORT).show();
                 Log.v("Notes",list1.get(position));
                 final DatabaseReference data2 = FirebaseDatabase.getInstance().getReference("notes").child(list1.get(position));
-
                 Map<String, Object> updates = new HashMap<String, Object>();
                 updates.put("status","complete");
                 data2.updateChildren(updates);

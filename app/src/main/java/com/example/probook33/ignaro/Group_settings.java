@@ -32,6 +32,14 @@ public class Group_settings extends AppCompatActivity {
             }
         });
 
+        members.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Group_settings.this,MemberList.class);
+                startActivity(intent);
+            }
+        });
+
         groupname.setText(GroupPage.grp.getGroupname());
         admin.setText(GroupPage.grp.getAdmin());
         key.setText(GroupPage.grp.getKey());
