@@ -173,7 +173,7 @@ public class NotifService extends Service {
 
                 }
                 for(final String s1 : grpsid) {
-                    String gname=s1;
+                    final String gname=s1;
                     final DatabaseReference data = FirebaseDatabase.getInstance().getReference("notes");
                     data.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -208,7 +208,7 @@ public class NotifService extends Service {
 
                                     if (l1==latitude && l2==longitude) {
                                         Log.v("ServicePushing",txt);
-                                        notification(txt);
+                                        notification(txt,gname);
                                     }
 
                             }
@@ -242,7 +242,7 @@ public class NotifService extends Service {
         return null;
     }
 
-    public void notification(String n){
+    public void notification(String n,String p){
         // TODO Auto-generated method stub
         //grpsid= new ArrayList<String>();
         //LocationListener p = null;
@@ -251,7 +251,7 @@ public class NotifService extends Service {
         NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notify=new Notification.Builder
                 (getApplicationContext()).setContentTitle("Title").setContentText(task).
-                setContentTitle("Nearby Incomplete Task!").setSmallIcon(R.drawable.common_google_signin_btn_icon_dark).build();
+                setContentTitle("Nearby Incomplete Task in group"+p).setSmallIcon(R.drawable.common_google_signin_btn_icon_dark).build();
 
         notify.flags |= Notification.FLAG_AUTO_CANCEL;
         notif.notify(0, notify);

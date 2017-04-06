@@ -1,5 +1,6 @@
 package com.example.probook33.ignaro;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class Create_note extends AppCompatActivity {
     TextView groupname;
     EditText text,lat,lon;
     Button add;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class Create_note extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd = new ProgressDialog(Create_note.this);
+                pd.setMessage("Fetching details... ");
+                pd.show();
                 final DatabaseReference data = FirebaseDatabase.getInstance().getReference("users");
                 data.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -63,8 +68,10 @@ public class Create_note extends AppCompatActivity {
                                 final DatabaseReference data =FirebaseDatabase.getInstance().getReference("notes");
                                 String noteid= data.push().getKey();
                                 data.child(noteid).setValue(note);
-
-
+                                text.setText("");
+                                lat.setText("");
+                                lon.setText("");
+                                pd.dismiss();
                                 Toast.makeText(getApplicationContext(),"Note created successfully",Toast.LENGTH_SHORT).show();
 
                                 Intent i=new Intent(Create_note.this,GroupPage.class);
