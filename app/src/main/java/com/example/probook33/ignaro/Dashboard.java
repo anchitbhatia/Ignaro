@@ -130,7 +130,7 @@ public class Dashboard extends AppCompatActivity
                                 }
                             }
                             pd.dismiss();
-                        ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), R.layout.group_list_element,grps);
+                        GroupCustomAdapter adapter=new GroupCustomAdapter(grps,getApplicationContext());
                             groupslv.setAdapter(adapter);
                         }
 

@@ -34,6 +34,9 @@ public class Add_member extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_member);
+
+        setTitle("New member");
+
         Bundle bundle = getIntent().getExtras();
         admin = bundle.getString("admin");
         g_id = bundle.getString("gid");

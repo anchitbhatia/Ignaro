@@ -14,8 +14,10 @@ public class Group_settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_group_settings);
+
+        setTitle("Group Settings");
+
         groupname= (TextView) findViewById(R.id.groupname);
         admin= (TextView) findViewById(R.id.admin);
         key= (TextView) findViewById(R.id.key);

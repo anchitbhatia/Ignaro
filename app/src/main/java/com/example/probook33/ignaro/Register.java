@@ -38,6 +38,8 @@ public class Register extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        setTitle("Register");
+
         ActivityCompat.requestPermissions(Register.this,
                 new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
                 1);

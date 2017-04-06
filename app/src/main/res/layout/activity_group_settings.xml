@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:padding="10dp"
         android:id="@+id/title"
         android:orientation="horizontal"
@@ -33,7 +33,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:padding="10dp"
         android:layout_below="@id/title"
         android:id="@+id/adminlayout"
@@ -57,7 +57,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:padding="10dp"
         android:layout_below="@id/adminlayout"
         android:id="@+id/keylayout"

@@ -23,7 +23,7 @@ public class Create_group extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group);
 
-        setTitle("Create Group");
+        setTitle("New Group");
 
         groupname= (EditText) findViewById(R.id.groupname);
         g_key= (EditText) findViewById(R.id.key);

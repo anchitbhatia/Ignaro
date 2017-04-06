@@ -30,6 +30,8 @@ public class Create_note extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
 
+        setTitle("New Note");
+
         groupname= (TextView) findViewById(R.id.groupname);
         text= (EditText) findViewById(R.id.text);
         lat= (EditText) findViewById(R.id.lat);
@@ -64,6 +66,10 @@ public class Create_note extends AppCompatActivity {
 
 
                                 Toast.makeText(getApplicationContext(),"Note created successfully",Toast.LENGTH_SHORT).show();
+
+                                Intent i=new Intent(Create_note.this,GroupPage.class);
+                                i.putExtra("title", GroupPage.grp.getGroupname());
+                                startActivity(i);
                             }
 
                         }
@@ -78,5 +84,12 @@ public class Create_note extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(Create_note.this,GroupPage.class);
+        i.putExtra("title", GroupPage.grp.getGroupname());
+        startActivity(i);
     }
 }

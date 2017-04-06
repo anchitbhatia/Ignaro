@@ -165,12 +165,13 @@ public class GroupPage extends AppCompatActivity {
                                 if(!notes.contains(note))
                                 {
                                     notes.add(note);
-                                    Toast.makeText(getApplicationContext(), "adding " + String.valueOf(notesSnapshot.child("text")),Toast.LENGTH_SHORT).show();
+
                                 }
                             }
                         }
                         if(notes!=null) {
-                            ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.note_list_element, notes);
+                           // ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.note_list_element, notes);
+                            MyCustomAdapter adapter = new MyCustomAdapter(notes,getApplicationContext());
                             notelv.setAdapter(adapter);
                             pd.dismiss();
                         }
