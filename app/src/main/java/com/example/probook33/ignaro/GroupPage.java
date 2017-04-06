@@ -1,5 +1,6 @@
 package com.example.probook33.ignaro;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -30,7 +31,7 @@ public class GroupPage extends AppCompatActivity {
     ProgressDialog pd;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_page);
         Bundle bundle = getIntent().getExtras();
@@ -74,7 +75,6 @@ public class GroupPage extends AppCompatActivity {
         delnote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
             }
         });

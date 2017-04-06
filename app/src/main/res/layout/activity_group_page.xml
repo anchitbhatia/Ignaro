@@ -37,7 +37,7 @@
             android:layout_height="wrap_content" />
 
         <android.support.design.widget.FloatingActionButton
-            android:src="@drawable/deletenote"
+            android:src="@drawable/refresh"
             app:fabSize="mini"
             android:id="@+id/delnote"
             app:backgroundTint="@android:color/holo_red_light"
@@ -53,7 +53,6 @@
             android:layout_toRightOf="@id/delnote"
             android:layout_marginLeft="30dp"
             app:backgroundTint="@android:color/holo_purple"
-            app:elevation="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

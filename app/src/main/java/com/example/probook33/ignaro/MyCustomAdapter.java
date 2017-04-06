@@ -76,7 +76,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         Log.v("ServiceEq",s);
         if(!s.equals("pending")){
             listItemText.setPaintFlags(listItemText.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
-
+            addBtn.setVisibility(View.INVISIBLE);
         }
         else{
             listItemText.setPaintFlags(listItemText.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
@@ -91,7 +91,9 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
                 //do something
 
                 String s=list2.get(position);
+
                 if(s.equals("complete")){
+                    listItemText.setPaintFlags(listItemText.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
                     return;
                 }
 
